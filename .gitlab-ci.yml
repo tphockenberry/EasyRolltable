@@ -10,7 +10,7 @@ stages:
 build:
   stage: build
   script:
-    - zip ../bhk-errt.zip -r "." -x ".*" "docs"
+    - zip ./bhk-errt.zip -r "." -x ".*" "docs"
   artifacts:
     name: bhk-errt
     when: on_success
