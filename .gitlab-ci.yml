@@ -1,0 +1,21 @@
+image: python:3-alpine
+
+before_script:
+  - apk update
+  - apk add zip
+
+stages:
+  - build
+
+build:
+  stage: build
+  script:
+    - zip ../bhk-errt.zip -r "." -x ".*" "docs"
+  artifacts:
+    name: bhk-errt
+    when: on_success
+    paths:
+      - bhk-errt.zip
+  when: on_success
+  only:
+    - tags
