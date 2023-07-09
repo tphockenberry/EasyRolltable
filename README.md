@@ -1,9 +1,9 @@
 # EasyTable
+![EasyTable Release](https://gitlab.com/herve.darritchon/bhk-errt/-/badges/release.svg)
 
-![EasyTable Release](https://github.com/BlitzKraig/fvtt-EasyTable/workflows/EasyTable%20Release/badge.svg)
-![Latest Release Download Count](https://img.shields.io/github/downloads/BlitzKraig/fvtt-EasyTable/latest/easytable-release.zip)
+(forked from [EasyTable by Blitz](https://github.com/BlitzKraig/fvtt-EasyTable) because it was not maintained anymore)  
 
-[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Q5Q01YIEJ)
+[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/P5P3GXAXB)
 
 Easy RollTables from CSV (or any-SV) data!
 
@@ -83,7 +83,7 @@ The resulting table will contain fully linked references to the `Greatsword` and
 
 ## Method 2 - TablePaste Input
 
-TablePate input is designed to allow you to copy and paste data from tables in digital sourcebooks, or from the web.
+TablePsate input is designed to allow you to copy and paste data from tables in digital sourcebooks, or from the web.
 
 As long as the table has the dice roll in column 1 and the value in column 2, you should be able to highlight and copy all of the values to use with EasyTable
 

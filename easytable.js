@@ -269,6 +269,7 @@ class EasyTable {
     static async generateTablePastedData(title, description, tableData, safeMode = false) {
 
         if (!safeMode) {
+            // ^(\d)([.-_\s]+)(.*)
             var rows = tableData.split(/\n(?=\d+[-–+\t])/);
 
             tableData = "";
