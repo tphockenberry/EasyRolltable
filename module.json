@@ -37,7 +37,7 @@
     "maximum": "11"
   },
   "url": "https://gitlab.com/herve.darritchon/bhk-errt",
-  "manifest": "https://gitlab.com/herve.darritchon/bhk-errt/-/raw/master/src/module.json",
+  "manifest": "https://gitlab.com/herve.darritchon/bhk-errt/-/raw/master/module.json",
   "download": "https://gitlab.com/herve.darritchon/bhk-errt/-/jobs/artifacts/0.1.0/raw/bhk-errt.zip?job=build",
   "manifestPlusVersion": "1.0.0",
   "media": [
