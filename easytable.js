@@ -2,7 +2,8 @@ Hooks.on("renderSidebarTab", async (app, html) => {
     if (!game.user.isGM) {
         return;
     }
-    if (app.options.id == "tables") {
+    console.log ("BHK-ERRT : App - ", app);
+    if (app.id === "tables") {
         // -- Values Mode --
         let csvButton = $(`<button class='new-easytable'><i class='fas fa-file-csv'></i> ${game.i18n.localize("EASYTABLE.ui.button-csv-title")}</button>`)
         let settings = game.settings.get("EasyTable", "tableSettings")
@@ -130,7 +131,8 @@ Hooks.on("renderSidebarTab", async (app, html) => {
     }
 })
 
-Hooks.on("init", () => {
+Hooks.once("init", async function () {
+    console.log("BHK-ERRT | Initializing The BHK Easy Random Rollable Table Module.");
     let etSettings = {
         title: game.i18n.localize("EASYTABLE.settings.defaults.title"),
         description: game.i18n.localize("EASYTABLE.settings.defaults.description"),
@@ -152,7 +154,7 @@ Hooks.on("init", () => {
             icon: '<i class="fas fa-file-csv"></i>',
             condition: game.user.isGM,
             callback: EasyTable.exportTableToCSV,
-            
+
         });
         return entries;
     };
@@ -171,45 +173,45 @@ class EasyTable {
     static getResultId(collection, text) {
         let resultId = '';
         let img = 'icons/svg/d20-black.svg'
-        if (collection == 'Text' || !collection) {
+        if (collection === 'Text' || !collection) {
             return [resultId, img];
         }
         let entity;
         switch (collection) {
             case 'Actor':
-                    entity = game.actors.getName(text);
-                    resultId = entity?.id||''
-                    img = entity?.img||img;
+                entity = game.actors.getName(text);
+                resultId = entity?.id || ''
+                img = entity?.img || img;
                 break;
             case 'Scene':
-                    entity = game.scenes.getName(text);
-                    resultId = entity?.id||''
-                    img = entity?.img||img;
+                entity = game.scenes.getName(text);
+                resultId = entity?.id || ''
+                img = entity?.img || img;
                 break;
             case 'Macro':
-                    entity = game.macros.getName(text);
-                    resultId = entity?.id||''
-                    img = entity?.data?.img||img;
+                entity = game.macros.getName(text);
+                resultId = entity?.id || ''
+                img = entity?.data?.img || img;
                 break;
             case 'Playlist':
-                    entity = game.playlists.getName(text);
-                    resultId = entity?.id||''
-                    // img = entity?.img||img;
+                entity = game.playlists.getName(text);
+                resultId = entity?.id || ''
+                // img = entity?.img||img;
                 break;
             case 'JournalEntry':
-                    entity = game.journal.getName(text);
-                    resultId = entity?.id||''
-                    img = entity?.data?.img||img;
+                entity = game.journal.getName(text);
+                resultId = entity?.id || ''
+                img = entity?.data?.img || img;
                 break;
             case 'RollTable':
-                    entity = game.tables.getName(text);
-                    resultId = entity?.id||''
-                    img = entity?.data?.img||img;
+                entity = game.tables.getName(text);
+                resultId = entity?.id || ''
+                img = entity?.data?.img || img;
                 break;
             case 'Item':
-                    entity = game.items.getName(text);
-                    resultId = entity?.id||''
-                    img = entity?.img||img;
+                entity = game.items.getName(text);
+                resultId = entity?.id || ''
+                img = entity?.img || img;
                 break;
             default:
                 break;
@@ -236,7 +238,7 @@ class EasyTable {
             let type = 1;
             let resultCollection = EasyTable.getCollection(collection);
             let [resultID, img] = EasyTable.getResultId(resultCollection, text);
-            if(!resultID || resultID.length < 1){
+            if (!resultID || resultID.length < 1) {
                 resultCollection = '';
                 type = 0;
             }
@@ -266,7 +268,7 @@ class EasyTable {
 
     static async generateTablePastedData(title, description, tableData, safeMode = false) {
 
-        if(!safeMode){
+        if (!safeMode) {
             var rows = tableData.split(/\n(?=\d+[-–+\t])/);
 
             tableData = "";
@@ -362,7 +364,11 @@ class EasyTable {
                     Ok: {
                         label: game.i18n.localize('EASYTABLE.ui.dialog.export.separator.button-ok'),
                         callback: (html) => {
-                            resolve({separator:html.find("[name='separator']").val(), skipWeight:html.find("[name='skipWeight']")[0].checked,skipCollection:html.find("[name='skipCollection']")[0].checked});
+                            resolve({
+                                separator: html.find("[name='separator']").val(),
+                                skipWeight: html.find("[name='skipWeight']")[0].checked,
+                                skipCollection: html.find("[name='skipCollection']")[0].checked
+                            });
                         }
                     }
                 }
@@ -383,27 +389,27 @@ class EasyTable {
                 collection
             } = result.data;
             // If an entry is empty, ensure it has a blank string, and remove the entity link
-            if(!text){
+            if (!text) {
                 text = '';
                 type = 0;
             }
             // Mark issues with chosen separator
-            if(text.indexOf(separator) > -1){
+            if (text.indexOf(separator) > -1) {
                 separatorIssue = true;
             }
             output += text;
 
             // Handle skips
-            if(skipWeight){
+            if (skipWeight) {
                 weight = 1;
             }
-            if(skipCollection){
+            if (skipCollection) {
                 type = 0;
             }
 
             if (weight > 1) {
-                output += `{${weight}${type==1&&collection?`@${collection}`:''}}`
-            } else if (type == 1 && collection) {
+                output += `{${weight}${type === 1 && collection ? `@${collection}` : ''}}`
+            } else if (type === 1 && collection) {
                 output += `{@${collection}}`;
             }
             if (++index <= results.size - 1) {
@@ -412,7 +418,7 @@ class EasyTable {
         }
         new Dialog({
             title: game.i18n.localize('EASYTABLE.ui.dialog.export.output.title'),
-            content: `${separatorIssue?
+            content: `${separatorIssue ?
                 `<h3 style="color:#ff0000">
                 ${game.i18n.localize('EASYTABLE.ui.dialog.export.output.separator-issue-head')}
                 </h3>

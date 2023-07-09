@@ -1,35 +1,51 @@
 {
-  "name": "EasyTable",
-  "title": "EasyTable by Blitz",
-  "description": "Creates simple text-based rollable tables from CSV (or any-SV) data",
-  "version": "1.3.3",
-  "author": "Blitzkraig",
-  "authors": [{
-    "name": "Blitzkraig",
-    "url": "https://ko-fi.com/blitzkraig",
-    "email": "craig@blitzkraig.com",
-    "discord": "Blitz#6797"
-  }],
-  "scripts": ["./easytable.js"],
-  "styles": ["./styles.css"],
+  "name": "bhk-errt",
+  "title": "Easy Random RollTable",
+  "description": "Creates simple text-based random rollable tables from CSV (or any-SV) data",
+  "version": "0.1.0",
+  "authors": [
+    {
+      "name": "Hervé Darritchon",
+      "url": "https://ko-fi.com/bahaska",
+      "discord": "herveDarritchon#7262",
+      "email": "herve.darritchon@gmail.com"
+    },
+    {
+      "name": "Blitzkraig",
+      "url": "https://ko-fi.com/blitzkraig",
+      "email": "craig@blitzkraig.com",
+      "discord": "Blitz#6797"
+    }
+  ],
+  "scripts": [
+    "./easytable.js"
+  ],
+  "styles": [
+    "./styles.css"
+  ],
   "packs": [],
-  "languages": [{
-    "lang": "en",
-    "name": "English",
-    "path": "lang/en.json"
-  }],
-  "minimumCoreVersion": "0.8.6",
-  "compatibleCoreVersion": "0.8.6",
-  "url": "https://github.com/BlitzKraig/fvtt-EasyTable",
-  "manifest": "https://raw.githubusercontent.com/BlitzKraig/fvtt-EasyTable/master/module.json",
-  "download": "https://github.com/BlitzKraig/fvtt-EasyTable/releases/download/latest/easytable-release.zip",
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "compatibility": {
+    "minimum": "11",
+    "verified": "11",
+    "maximum": "11"
+  },
+  "url": "https://github.com/herveDarritchon/fvtt-EasyTable",
+  "manifest": "https://raw.githubusercontent.com/herveDarritchon/fvtt-EasyTable/master/module.json",
+  "download": "https://github.com/herveDarritchon/fvtt-EasyTable/releases/download/latest/easytable-release.zip",
   "manifestPlusVersion": "1.0.0",
   "media": [
     {
       "type": "cover",
-      "url": "https://raw.githubusercontent.com/BlitzKraig/fvtt-EasyTable/master/docs/cover.png"
+      "url": "https://raw.githubusercontent.com/herveDarritchon/fvtt-EasyTable/master/docs/cover.png"
     }
   ],
   "allowBugReporter": true,
-  "bugs":"https://github.com/BlitzKraig/fvtt-EasyTable/issues"
+  "bugs": "https://github.com/herveDarritchon/fvtt-EasyTable/issues"
 }
