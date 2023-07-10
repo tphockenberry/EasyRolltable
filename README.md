@@ -106,10 +106,10 @@ Note that the export function does not export the title or the description, just
 
 ## Manifest
 
-`https://raw.githubusercontent.com/BlitzKraig/fvtt-EasyTable/master/module.json`
+`https://gitlab.com/herve.darritchon/bhk-errt/-/raw/master/module.json`
 
 ## Feedback
 
-For bugs/feedback, create an issue on GitHub, or contact me on Discord at Blitz#6797
+For bugs/feedback, create an issue on [Gitlab](https://gitlab.com/herve.darritchon/bhk-errt), or contact me on Discord at herveDarritchon#7262 ([French Discord Server](https://discord.gg/pPSDNJk), [channel](https://discord.com/channels/715943353409339425/815848061477191701) )
 
 ## [Release Notes](./CHANGELOG.md)

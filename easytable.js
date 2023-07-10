@@ -162,6 +162,26 @@ Hooks.once("init", async function () {
 
 class EasyTable {
 
+    static _getDataRows(tableData) {
+        return tableData.split(/\n(?=\d*[.\-–+\t]*)/g);
+    }
+
+    static _deleteTrailingEmptyLine(tableEntries) {
+        return tableEntries.filter(entry => !entry.match("^(\n|\r\n)$"))
+    }
+
+    static _sanitize(tableData) {
+        let rows = this._getDataRows(tableData);
+
+        let resultData = "";
+
+        rows.forEach(row => {
+            row = row.replace(/[\n\r]+/g, ' ').replace(/\s{2,}/g, ' ').replace(/^\s+|\s+$/, '');
+            resultData += row + "\n";
+        });
+        return resultData;
+    }
+
     static getCollection(collection) {
         let validCollection = ['Actor', 'Scene', 'Macro', 'Playlist', 'JournalEntry', 'RollTable', 'Item']
         if (validCollection.includes(collection)) {
@@ -266,23 +286,17 @@ class EasyTable {
         await table.normalize();
     }
 
-    static async generateTablePastedData(title, description, tableData, safeMode = false) {
+    static async generateTablePastedData(title, description, data, safeMode = false) {
 
+        let sanitizedData = data;
         if (!safeMode) {
-            // ^(\d)([.-_\s]+)(.*)
-            var rows = tableData.split(/\n(?=\d+[-–+\t])/);
-
-            tableData = "";
-
-            rows.forEach(row => {
-                row = row.replace(/[\n\r]+/g, ' ').replace(/\s{2,}/g, ' ').replace(/^\s+|\s+$/, '');
-                tableData += row + "\n";
-            });
+            sanitizedData = this._sanitize(data);
         }
 
         let resultsArray = [];
         let processed = [];
-        let tableEntries = tableData.split(/[\r\n]+/);
+        let rawTableEntries = sanitizedData.split(/[\r\n]+/);
+        let tableEntries = this._deleteTrailingEmptyLine(rawTableEntries);
         let rangeIndex = 1;
         tableEntries.forEach((tableEntry, i) => {
             if (processed[i]) {
@@ -295,16 +309,10 @@ class EasyTable {
             }
             let weight, text;
             if (tableEntry.match(/^\d/)) {
-                [weight, text] = tableEntry.split(/(?<=^\S+)\s/)
+                [weight, text] = tableEntry.split(/(?<=^\S+)\s/);
                 try {
-                    if (weight.match(/[\d]+-[\d]+/)) {
-                        let [beginRange, endRange] = weight.split('-');
-                        if (endRange === '00') {
-                            endRange = '100'
-                        }
-                        weight = endRange - beginRange + 1;
-                    } else if (weight.match(/[\d]+–[\d]+/)) { // Not actually a hyphen...
-                        let [beginRange, endRange] = weight.split('–');
+                    if (weight.match(/\d+[-|–]\d+/)) {
+                        let [beginRange, endRange] = weight.split(/[-–]/);
                         if (endRange === '00') {
                             endRange = '100'
                         }
@@ -322,8 +330,9 @@ class EasyTable {
                     }
                 } catch (e) {
                     console.log(e);
-                    weight = 1;
                 }
+            } else {
+                text = tableEntry;
             }
             if (!text) {
                 text = "TEXT MISSING";
@@ -335,19 +344,20 @@ class EasyTable {
             resultsArray.push({
                 "type": 0,
                 "text": text,
-                "weight": weight || 1,
+                "weight": weight,
                 "range": [rangeIndex, rangeIndex + (weight - 1)],
                 "drawn": false
             });
             rangeIndex += weight;
         });
+
         let table = await RollTable.create({
             name: title,
             description: description,
             results: resultsArray,
             replacement: true,
             displayRoll: true,
-            img: "modules/EasyTable/easytable.png"
+            img: "modules/easyrandomtable/easytable.png"
         });
         await table.normalize();
     }

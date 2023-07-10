@@ -1,3 +1,7 @@
+## 2.0.0 - Compat (2023/07/10)
+* Updated version compat to v11
+* Fix some issues with paste data
+
 ## 1.3.2 - Compat (2021/05/22)
 * Updated version compat to 0.8.5
 

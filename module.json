@@ -1,20 +1,14 @@
 {
-  "name": "bhk-errt",
-  "title": "Easy Random RollTable",
-  "description": "Creates simple text-based random rollable tables from CSV (or any-SV) data",
-  "version": "0.1.0",
+  "name": "easyrandomtable",
+  "title": "Easy RollTable",
+  "description": "Creates simple text-based Random Rollable Tables from CSV (or any-SV) or Copy/Paste data",
+  "version": "2.0.0",
   "authors": [
     {
       "name": "Hervé Darritchon",
       "url": "https://ko-fi.com/bahaska",
       "discord": "herveDarritchon#7262",
       "email": "herve.darritchon@gmail.com"
-    },
-    {
-      "name": "Blitzkraig",
-      "url": "https://ko-fi.com/blitzkraig",
-      "email": "craig@blitzkraig.com",
-      "discord": "Blitz#6797"
     }
   ],
   "scripts": [
