@@ -1,4 +1,8 @@
+import {FvttProvider} from "./fvttProvider.js";
+
 export class EasyTable {
+
+    static validCollection = ['Actor', 'Scene', 'Macro', 'Playlist', 'JournalEntry', 'RollTable', 'Item']
 
     static _getDataRows(tableData) {
         return tableData.split(/\n(?=\d*[.\-–+\t]*)/g);
@@ -20,61 +24,24 @@ export class EasyTable {
         return resultData;
     }
 
-    static getCollection(collection) {
-        let validCollection = ['Actor', 'Scene', 'Macro', 'Playlist', 'JournalEntry', 'RollTable', 'Item']
-        if (validCollection.includes(collection)) {
+    static _getCollection(collection) {
+        if (this.validCollection.includes(collection)) {
             return collection
         }
         return '';
     }
 
-    static getResultId(collection, text) {
-        let resultId = '';
-        let img = 'icons/svg/d20-black.svg'
+    static getResultId(collection, name) {
+        let defaultId = '';
+        let defaultImg = 'icons/svg/d20-black.svg'
         if (collection === 'Text' || !collection) {
-            return [resultId, img];
+            return [defaultId, defaultImg];
         }
-        let entity;
-        switch (collection) {
-            case 'Actor':
-                entity = game.actors.getName(text);
-                resultId = entity?.id || ''
-                img = entity?.img || img;
-                break;
-            case 'Scene':
-                entity = game.scenes.getName(text);
-                resultId = entity?.id || ''
-                img = entity?.img || img;
-                break;
-            case 'Macro':
-                entity = game.macros.getName(text);
-                resultId = entity?.id || ''
-                img = entity?.data?.img || img;
-                break;
-            case 'Playlist':
-                entity = game.playlists.getName(text);
-                resultId = entity?.id || ''
-                // img = entity?.img||img;
-                break;
-            case 'JournalEntry':
-                entity = game.journal.getName(text);
-                resultId = entity?.id || ''
-                img = entity?.data?.img || img;
-                break;
-            case 'RollTable':
-                entity = game.tables.getName(text);
-                resultId = entity?.id || ''
-                img = entity?.data?.img || img;
-                break;
-            case 'Item':
-                entity = game.items.getName(text);
-                resultId = entity?.id || ''
-                img = entity?.img || img;
-                break;
-            default:
-                break;
-        }
-        return [resultId, img];
+        let entity = FvttProvider._getEntity(collection, name);
+
+        let id = entity?.id || defaultId
+        let img = entity?.img || defaultImg;
+        return {id, img};
     }
 
     static async generateTable(title, description, csvData, separator, defaultCollection = 'Text') {
@@ -94,8 +61,8 @@ export class EasyTable {
                 weight = 1;
             }
             let type = 1;
-            let resultCollection = EasyTable.getCollection(collection);
-            let [resultID, img] = EasyTable.getResultId(resultCollection, text);
+            let resultCollection = EasyTable._getCollection(collection);
+            let {resultID, img} = EasyTable.getResultId(resultCollection, text);
             if (!resultID || resultID.length < 1) {
                 resultCollection = '';
                 type = 0;
@@ -299,6 +266,4 @@ export class EasyTable {
         }).render(true);
     }
 }
-
-//module.exports = EasyTable;
 

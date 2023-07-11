@@ -1,4 +1,6 @@
-import { EasyTable } from "../src/modules/EasyTable.js";
+import {EasyTable} from "../src/modules/EasyTable.js";
+import {FvttProvider} from "../src/modules/fvttProvider.js";
+import {jest} from "@jest/globals";
 
 let tableWithNumber = `1. Pain et jambon Δ4
 2. Biscuits secs et noix Δ8`;
@@ -114,4 +116,34 @@ test('_deleteTrailingEmptyLine from a random table data with two trailing lines'
 test('_deleteTrailingEmptyLine from a random table data with no trailing line', () => {
     let tableEntries = ["1. Pain", "2. Épée courte"];
     expect(EasyTable._deleteTrailingEmptyLine(tableEntries).length).toBe(2);
+});
+
+describe('getCollection with a collection not present in the valid collection should return empty string', () => {
+    it.each(
+        ["unknown", null, undefined, "", "     "]
+    )("collection is '%s'", (collection) => {
+        expect(EasyTable._getCollection(collection)).toBe("");
+    });
+});
+test('getCollection with a collection not present in the valid collection should return empty string', () => {
+    expect(EasyTable._getCollection("unknown")).toBe("");
+});
+
+describe('getCollection with a collection present in the valid collection should return the collection string', () => {
+    it.each(EasyTable.validCollection)
+    ("collection is '%s'", (collection) => {
+        expect(EasyTable._getCollection(collection)).toBe(collection);
+    });
+});
+
+jest.mock("../src/modules/fvttProvider.js");
+test('getResultId with an actor name should return its id and image', () => {
+    const mockResult = {
+        id: 1,
+        img: "aboleth.jpg"
+    };
+    FvttProvider._getEntity = jest.fn().mockReturnValue(mockResult)
+    let result = EasyTable.getResultId("Actor", "Aboleth");
+    expect(result.id).toBe(1);
+    expect(result.img).toBe("aboleth.jpg");
 });
