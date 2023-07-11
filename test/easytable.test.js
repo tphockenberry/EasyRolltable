@@ -1,4 +1,4 @@
-const EasyTable = require('../src/modules/EasyTable');
+import { EasyTable } from "../src/modules/EasyTable.js";
 
 let tableWithNumber = `1. Pain et jambon Δ4
 2. Biscuits secs et noix Δ8`;

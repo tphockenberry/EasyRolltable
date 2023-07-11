@@ -10,12 +10,16 @@ stages:
 build:
   stage: build
   script:
-    - mkdir build
-    - cp -Rp src build
-    - cp -p CHANGELOG.md build
-    - cp -p README.md build
-    - cp -p LICENCE build
-    - zip ./easyrandomtable.zip -r "build/*"
+    - mkdir ./build
+    - cp -Rp ./src/* ./build
+    - cp -p CHANGELOG.md ./build
+    - cp -p README.md ./build
+    - cp -p LICENSE ./build
+    - cd ./build
+    - ls -l
+    - zip ../easyrandomtable.zip -r "."
+    - cd ..
+    - rm -Rf build
   artifacts:
     name: easyrandomtable
     when: on_success

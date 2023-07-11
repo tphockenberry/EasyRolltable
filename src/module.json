@@ -2,7 +2,7 @@
   "name": "easyrandomtable",
   "title": "Easy RollTable",
   "description": "Creates simple text-based Random Rollable Tables from CSV (or any-SV) or Copy/Paste data",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "authors": [
     {
       "name": "Hervé Darritchon",
@@ -11,8 +11,8 @@
       "email": "herve.darritchon@gmail.com"
     }
   ],
-  "scripts": [
-    "./easyrandomtable.js"
+  "esmodules": [
+    "./modules/easyrandomtable.js"
   ],
   "styles": [
     "./styles/styles.css"
@@ -31,13 +31,13 @@
     "maximum": "11"
   },
   "url": "https://gitlab.com/herve.darritchon/bhk-errt",
-  "manifest": "https://gitlab.com/herve.darritchon/bhk-errt/-/raw/develop/src/module.json",
-  "download": "https://gitlab.com/herve.darritchon/bhk-errt/-/jobs/artifacts/develop/raw/easyrandomtable.zip?job=build",
+  "manifest": "https://gitlab.com/herve.darritchon/bhk-errt/-/raw/master/src/module.json",
+  "download": "https://gitlab.com/herve.darritchon/bhk-errt/-/jobs/artifacts/2.2.0/raw/easyrandomtable.zip?job=build",
   "manifestPlusVersion": "1.0.0",
   "media": [
     {
       "type": "cover",
-      "url": "https://gitlab.com/herve.darritchon/bhk-errt/master/assets/cover.png"
+      "url": "https://gitlab.com/herve.darritchon/bhk-errt/-/blob/ff24f0e5c5dcb16dc95965ca2a7481eca4ca21e0/easytable.png"
     }
   ],
   "allowBugReporter": true,

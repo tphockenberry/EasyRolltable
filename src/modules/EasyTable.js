@@ -1,4 +1,4 @@
-class EasyTable {
+export class EasyTable {
 
     static _getDataRows(tableData) {
         return tableData.split(/\n(?=\d*[.\-–+\t]*)/g);
@@ -206,11 +206,11 @@ class EasyTable {
     }
 
     static async exportTableToCSV(li) {
-
+        let defaultSeparator = game.settings.get("easyrandomtable", "dataSeparator")
         let {separator, skipWeight, skipCollection} = await new Promise((resolve) => {
             new Dialog({
                 title: game.i18n.localize('EASYTABLE.ui.dialog.export.separator.title'),
-                content: `<table style="width:100%"><tr><th style="width:50%"><label>${game.i18n.localize('EASYTABLE.ui.dialog.export.separator.prompt')}</label></th><td style="width:50%"><input type="text" maxlength="1" size="1" value="," name="separator"/></td></tr>
+                content: `<table style="width:100%"><tr><th style="width:50%"><label>${game.i18n.localize('EASYTABLE.ui.dialog.export.separator.prompt')}</label></th><td style="width:50%"><input type="text" maxlength="1" size="1" value="${defaultSeparator ?? ';'}" name="separator"/></td></tr>
                 <tr><th style="width:50%"><label>${game.i18n.localize('EASYTABLE.ui.dialog.export.separator.skip-weight')}</label></th><td style="width:50%"><input type="checkbox" id="skipWeight" name="skipWeight"></td></tr>
                 <tr><th style="width:50%"><label>${game.i18n.localize('EASYTABLE.ui.dialog.export.separator.skip-collection')}</label></th><td style="width:50%"><input type="checkbox" id="skipCollection" name="skipCollection"></td></tr>
                 </table>`,
@@ -231,7 +231,7 @@ class EasyTable {
         if (!separator) {
             separator = ',';
         }
-        let results = game.tables.get(li.data("entityId")).data.results
+        let results = game.tables.get(li.data().entryId).results
         let output = '';
         let index = 0;
         let separatorIssue = false;
@@ -241,7 +241,7 @@ class EasyTable {
                 text,
                 type,
                 collection
-            } = result.data;
+            } = result;
             // If an entry is empty, ensure it has a blank string, and remove the entity link
             if (!text) {
                 text = '';
@@ -300,5 +300,5 @@ class EasyTable {
     }
 }
 
-module.exports = EasyTable;
+//module.exports = EasyTable;
 

@@ -1,3 +1,27 @@
+import {EasyTable} from "./EasyTable.js";
+import {registerSystemSettings} from "./settings.js";
+
+Hooks.once("init", async function () {
+
+    console.log("BHK-ERRT || Initializing The BHK Easy Random Rollable Table Module.");
+
+    // Register module Settings
+    registerSystemSettings();
+
+    const base = RollTableDirectory.prototype._getEntryContextOptions;
+    RollTableDirectory.prototype._getEntryContextOptions = function () {
+        const entries = game.user.isGM ? base.call(this) : [];
+        entries.push({
+            name: game.i18n.localize('EASYTABLE.ui.context.export'),
+            icon: '<i class="fas fa-file-csv"></i>',
+            condition: game.user.isGM,
+            callback: EasyTable.exportTableToCSV,
+
+        });
+        return entries;
+    };
+});
+
 Hooks.on("renderSidebarTab", async (app, html) => {
     if (!game.user.isGM) {
         return;
@@ -129,34 +153,3 @@ Hooks.on("renderSidebarTab", async (app, html) => {
         $('.easytable-actions').append(csvButton).append(tableButton);
     }
 })
-
-Hooks.once("init", async function () {
-    console.log("BHK-ERRT | Initializing The BHK Easy Random Rollable Table Module.");
-    let etSettings = {
-        title: game.i18n.localize("EASYTABLE.settings.defaults.title"),
-        description: game.i18n.localize("EASYTABLE.settings.defaults.description"),
-        data: 'val1,val2{2},val3',
-        separator: ','
-    };
-    game.settings.register("easyrandomtable", "tableSettings", {
-        name: "EasyRollTable Default Settings",
-        scope: "world",
-        config: false,
-        default: etSettings
-    });
-
-    const base = RollTableDirectory.prototype._getEntryContextOptions;
-    RollTableDirectory.prototype._getEntryContextOptions = function () {
-        const entries = game.user.isGM ? base.call(this) : [];
-        entries.push({
-            name: game.i18n.localize('EASYTABLE.ui.context.export'),
-            icon: '<i class="fas fa-file-csv"></i>',
-            condition: game.user.isGM,
-            callback: EasyTable.exportTableToCSV,
-
-        });
-        return entries;
-    };
-});
-
-
