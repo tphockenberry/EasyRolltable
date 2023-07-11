@@ -25,7 +25,6 @@ Hooks.once("init", async function () {
             callback: EasyTable.exportTableToCSV,
 
         });
-        console.log("BHK-ERRT || Entries : ", entries);
         return entries;
     };
 });

@@ -231,7 +231,7 @@ export class EasyTable {
         if (!separator) {
             separator = ',';
         }
-        let results = game.tables.get(li.data("entityId")).data.results
+        let results = game.tables.get(li.data().entryId).results
         let output = '';
         let index = 0;
         let separatorIssue = false;
@@ -241,7 +241,7 @@ export class EasyTable {
                 text,
                 type,
                 collection
-            } = result.data;
+            } = result;
             // If an entry is empty, ensure it has a blank string, and remove the entity link
             if (!text) {
                 text = '';
