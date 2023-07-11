@@ -11,8 +11,8 @@
       "email": "herve.darritchon@gmail.com"
     }
   ],
-  "scripts": [
-    "./easyrandomtable.js"
+  "esmodules": [
+    "./modules/easyrandomtable.js"
   ],
   "styles": [
     "./styles/styles.css"
@@ -37,7 +37,7 @@
   "media": [
     {
       "type": "cover",
-      "url": "https://gitlab.com/herve.darritchon/bhk-errt/master/assets/cover.png"
+      "url": "https://gitlab.com/herve.darritchon/bhk-errt/-/blob/ff24f0e5c5dcb16dc95965ca2a7481eca4ca21e0/easytable.png"
     }
   ],
   "allowBugReporter": true,

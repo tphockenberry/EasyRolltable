@@ -24,6 +24,8 @@
   },
   "homepage": "https://gitlab.com/herve.darritchon/bhk-errt#readme",
   "devDependencies": {
+    "@babel/preset-env": "^7.22.7",
+    "babel-jest": "^29.6.1",
     "jest": "^29.6.1"
   }
 }

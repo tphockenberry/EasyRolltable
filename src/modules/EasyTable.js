@@ -1,4 +1,4 @@
-class EasyTable {
+export class EasyTable {
 
     static _getDataRows(tableData) {
         return tableData.split(/\n(?=\d*[.\-–+\t]*)/g);
@@ -300,5 +300,5 @@ class EasyTable {
     }
 }
 
-module.exports = EasyTable;
+//module.exports = EasyTable;
 
