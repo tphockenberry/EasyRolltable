@@ -1,19 +1,19 @@
 {
     "EASYTABLE": {
         "notif": {
-            "title-required": "EasyTables require a Title",
-            "csv-required": "EasyTables require the Values field to be filled",
-            "tabledata-required": "EasyTables require the Table Data field to be filled",
-            "separator-required": "EasyTables require the Separator field to contain a single character",
-            "table-created": "EasyTable Created:"
+            "title-required": "EasyRollTables require a Title",
+            "csv-required": "EasyRollTables require the Values field to be filled",
+            "tabledata-required": "EasyRollTables require the Table Data field to be filled",
+            "separator-required": "EasyRollTables require the Separator field to contain a single character",
+            "table-created": "EasyRollTable Created:"
         },
         "ui": {
             "button-csv-title": "Values to Table",
             "button-tablepaste-title": "TablePaste",
-            "button-header": "EasyTable",
+            "button-header": "EasyRollTable",
             "dialog": {
                 "csv": {
-                    "title": "EasyTable from Values",
+                    "title": "EasyRollTable from Values",
                     "table-title": "Table Title",
                     "table-description": "Table Description",
                     "csv-data": "Values",
@@ -28,7 +28,7 @@
                     }
                 },
                 "tablepaste": {
-                    "title": "EasyTable Table Paste Mode",
+                    "title": "EasyRollTable Table Paste Mode",
                     "table-title": "Table Title",
                     "table-description": "Table Description",
                     "table-data": "Table Data - DO NOT include a table header here. Set the title above.",
@@ -42,14 +42,14 @@
                 },
                 "export": {
                     "separator": {
-                        "title": "EasyTable Export",
+                        "title": "EasyRollTable Export",
                         "prompt": "Export with Separator",
                         "skip-weight": "Ignore Weights", 
                         "skip-collection": "Ignore Entity Types",
                         "button-ok": "OK"
                     },
                     "output": {
-                        "title": "EasyTable Export Complete",
+                        "title": "EasyRollTable Export Complete",
                         "separator-issue-head": "Your chosen separator was found in some results. Your table might not import correctly.",
                         "separator-issue-hint": "Try using another separator that doesn't appear in the text, like a vertical pipe `|`",
                         "separator-issue-none": "No issues found during export",
@@ -59,12 +59,12 @@
                 }
             },
             "context": {
-                "export": "Export EasyTable"
+                "export": "Export EasyRollTable"
             }
         },
         "settings":{
             "defaults": {
-                "title": "EasyTable",
+                "title": "EasyRollTable",
                 "description": "An easy table. Optional {} denotes weight"
             }
         }

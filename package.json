@@ -1,0 +1,29 @@
+{
+  "name": "fvtt-bhk-errt",
+  "version": "1.0.0",
+  "description": "module to handle Roll Table in FVTT",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest --verbose ./test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/herve.darritchon/bhk-errt.git"
+  },
+  "keywords": [
+    "FVTT",
+    "RoolTable"
+  ],
+  "author": "hervé Darritchon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/herve.darritchon/bhk-errt/issues"
+  },
+  "homepage": "https://gitlab.com/herve.darritchon/bhk-errt#readme",
+  "devDependencies": {
+    "jest": "^29.6.1"
+  }
+}

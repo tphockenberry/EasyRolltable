@@ -10,12 +10,17 @@ stages:
 build:
   stage: build
   script:
-    - zip ./bhk-errt.zip -r "." -x ".*" "docs"
+    - mkdir build
+    - cp -Rp src build
+    - cp -p CHANGELOG.md build
+    - cp -p README.md build
+    - cp -p LICENCE build
+    - zip ./easyrandomtable.zip -r "build/*"
   artifacts:
-    name: bhk-errt
+    name: easyrandomtable
     when: on_success
     paths:
-      - bhk-errt.zip
+      - easyrandomtable.zip
   when: on_success
   only:
     - tags

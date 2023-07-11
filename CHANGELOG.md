@@ -1,3 +1,8 @@
+## 2.1.0 - Change software architecture (2023/07/11)
+* Technical release to have better software architecture with tests
+* Fix Export
+* Fix settings
+
 ## 2.0.0 - Compat (2023/07/10)
 * Updated version compat to v11
 * Fix some issues with paste data
