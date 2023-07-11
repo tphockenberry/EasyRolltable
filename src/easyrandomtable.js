@@ -53,7 +53,7 @@ Hooks.on("renderSidebarTab", async (app, html) => {
                                 ui.notifications.error(game.i18n.localize("EASYTABLE.notif.csv-required"));
                                 return;
                             } else if (!separator || separator.length > 1) {
-                                //TODO: Restrict this properly
+                                //TODO: Restrict this property
                                 ui.notifications.error(game.i18n.localize("EASYTABLE.notif.separator-required"));
                                 return;
                             }
