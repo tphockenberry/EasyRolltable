@@ -1,3 +1,5 @@
+import EasyTable from "./modules/EasyTable";
+
 Hooks.on("renderSidebarTab", async (app, html) => {
     if (!game.user.isGM) {
         return;
