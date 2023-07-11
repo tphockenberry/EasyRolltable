@@ -2,7 +2,7 @@
   "name": "easyrandomtable",
   "title": "Easy RollTable",
   "description": "Creates simple text-based Random Rollable Tables from CSV (or any-SV) or Copy/Paste data",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "authors": [
     {
       "name": "Hervé Darritchon",
