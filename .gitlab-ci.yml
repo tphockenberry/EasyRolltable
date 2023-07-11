@@ -18,6 +18,8 @@ build:
     - cd ./build
     - ls -l
     - zip ../easyrandomtable.zip -r "."
+    - cd ..
+    - rm -Rf build
   artifacts:
     name: easyrandomtable
     when: on_success
