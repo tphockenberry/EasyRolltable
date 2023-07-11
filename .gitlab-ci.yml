@@ -14,7 +14,7 @@ build:
     - cp -Rp src build
     - cp -p CHANGELOG.md build
     - cp -p README.md build
-    - cp -p LICENCE build
+    - cp -p LICENSE build
     - zip ./easyrandomtable.zip -r "build/*"
   artifacts:
     name: easyrandomtable

@@ -32,7 +32,7 @@
   },
   "url": "https://gitlab.com/herve.darritchon/bhk-errt",
   "manifest": "https://gitlab.com/herve.darritchon/bhk-errt/-/raw/develop/src/module.json",
-  "download": "https://gitlab.com/herve.darritchon/bhk-errt/-/jobs/artifacts/develop/raw/easyrandomtable.zip?job=build",
+  "download": "https://gitlab.com/herve.darritchon/bhk-errt/-/jobs/artifacts/release-develop/raw/easyrandomtable.zip?job=build",
   "manifestPlusVersion": "1.0.0",
   "media": [
     {
