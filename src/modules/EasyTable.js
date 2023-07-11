@@ -206,11 +206,11 @@ export class EasyTable {
     }
 
     static async exportTableToCSV(li) {
-
+        let defaultSeparator = game.settings.get("easyrandomtable", "dataSeparator")
         let {separator, skipWeight, skipCollection} = await new Promise((resolve) => {
             new Dialog({
                 title: game.i18n.localize('EASYTABLE.ui.dialog.export.separator.title'),
-                content: `<table style="width:100%"><tr><th style="width:50%"><label>${game.i18n.localize('EASYTABLE.ui.dialog.export.separator.prompt')}</label></th><td style="width:50%"><input type="text" maxlength="1" size="1" value="," name="separator"/></td></tr>
+                content: `<table style="width:100%"><tr><th style="width:50%"><label>${game.i18n.localize('EASYTABLE.ui.dialog.export.separator.prompt')}</label></th><td style="width:50%"><input type="text" maxlength="1" size="1" value="${defaultSeparator ?? ';'}" name="separator"/></td></tr>
                 <tr><th style="width:50%"><label>${game.i18n.localize('EASYTABLE.ui.dialog.export.separator.skip-weight')}</label></th><td style="width:50%"><input type="checkbox" id="skipWeight" name="skipWeight"></td></tr>
                 <tr><th style="width:50%"><label>${game.i18n.localize('EASYTABLE.ui.dialog.export.separator.skip-collection')}</label></th><td style="width:50%"><input type="checkbox" id="skipCollection" name="skipCollection"></td></tr>
                 </table>`,

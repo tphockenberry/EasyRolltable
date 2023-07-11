@@ -1,19 +1,12 @@
 import {EasyTable} from "./EasyTable.js";
+import {registerSystemSettings} from "./settings.js";
 
 Hooks.once("init", async function () {
+
     console.log("BHK-ERRT || Initializing The BHK Easy Random Rollable Table Module.");
-    let etSettings = {
-        title: game.i18n.localize("EASYTABLE.settings.defaults.title"),
-        description: game.i18n.localize("EASYTABLE.settings.defaults.description"),
-        data: 'val1,val2{2},val3',
-        separator: ','
-    };
-    game.settings.register("easyrandomtable", "tableSettings", {
-        name: "EasyRollTable Default Settings",
-        scope: "world",
-        config: false,
-        default: etSettings
-    });
+
+    // Register module Settings
+    registerSystemSettings();
 
     const base = RollTableDirectory.prototype._getEntryContextOptions;
     RollTableDirectory.prototype._getEntryContextOptions = function () {
