@@ -1,7 +1,7 @@
-# EasyTable
-![EasyTable Release](https://gitlab.com/herve.darritchon/bhk-errt/-/badges/release.svg)
+# EasyRolltable
+(forked from [EasyTable by hervé DARRITCHON]https://gitlab.com/herve.darritchon/bhk-errt) as it was no longer being maintained
 
-(forked from [EasyTable by Blitz](https://github.com/BlitzKraig/fvtt-EasyTable) because it was not maintained anymore)  
+(which it was forked from [EasyTable by Blitz](https://github.com/BlitzKraig/fvtt-EasyTable) because it was not maintained anymore)  
 
 [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/P5P3GXAXB)
 

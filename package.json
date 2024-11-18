@@ -1,7 +1,7 @@
 {
-  "name": "fvtt-bhk-errt",
+  "name": "EasyRolltables",
   "version": "1.0.0",
-  "description": "module to handle Roll Table in FVTT",
+  "description": "module to handle CSV import into FVTT RollTable",
   "main": "index.js",
   "directories": {
     "test": "test"
@@ -11,18 +11,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/herve.darritchon/bhk-errt.git"
+    "url": "git+https://github.com/tphockenberry/EasyRolltable.git"
   },
   "keywords": [
     "FVTT",
-    "RoolTable"
+    "RollTable"
   ],
-  "author": "hervé Darritchon",
+  "author": "Tony Hockenberry",
   "license": "MIT",
   "bugs": {
-    "url": "https://gitlab.com/herve.darritchon/bhk-errt/issues"
+    "url": "https://github.com/tphockenberry/EasyRolltable/issues"
   },
-  "homepage": "https://gitlab.com/herve.darritchon/bhk-errt#readme",
+  "homepage": "https://github.com/tphockenberry/EasyRolltable#readme",
   "devDependencies": {
     "@babel/preset-env": "^7.22.7",
     "babel-jest": "^29.6.1",
