@@ -31,13 +31,13 @@
     "maximum": "12"
   },
   "url": "https://github.com/tphockenberry/EasyRolltable",
-  "manifest": "https://github.com/tphockenberry/EasyRolltable/-/raw/master/src/module.json",
-  "download": "https://github.com/tphockenberry/EasyRolltable/-/jobs/artifacts/2.2.0/raw/easyrandomtable.zip?job=build",
+  "manifest": "https://github.com/tphockenberry/EasyRolltable/blob/main/src/module.json",
+  "download": "https://github.com/tphockenberry/EasyRolltable/archive/refs/tags/v2.3.0.zip",
   "manifestPlusVersion": "1.0.0",
   "media": [
     {
       "type": "cover",
-      "url": "https://github.com/tphockenberry/EasyRolltable/-/blob/ff24f0e5c5dcb16dc95965ca2a7481eca4ca21e0/easytable.png"
+      "url": "https://github.com/tphockenberry/EasyRolltable/blob/main/src/assets/easytable.png"
     }
   ],
   "allowBugReporter": true,
